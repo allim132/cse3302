@@ -1,3 +1,7 @@
+// Alex Nguyen
+// 1002097417
+// 2/25/2025
+
 // 1. Start with Start with an array called inputtable. The array should have numbers between 1 and 10.
 let inputtable = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
