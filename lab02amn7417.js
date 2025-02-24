@@ -98,6 +98,8 @@ console.log(coolHTMLTable)
 // should allow the grader to combine a chosen multiple along with the choice of odd / even
 // without modifying your code. 
 
+
+
 coolGenericFunction = function(multiple){
     const multipleTable = Array.from({ length : 100 / Math.ceil(multiple) }, (_, i) => i * multiple)
     // PROGRAMMING COMMENT: I got this formula from the code in part 4. This is to create the create multiple 
@@ -125,9 +127,12 @@ const multiple = 5
 const isEven = true
 // --------------------------------------------------------------------------------------//
 
-// Test Code
+// Problem 3
 multipleTable = coolGenericFunction(multiple)
 // PROGRAMMING COMMENT: Currying
-evenOrOddMultipleTable = multiple5Table(isEven) 
+evenOrOddMultipleTable = multipleTable(isEven) 
 // PROGRAMMING COMMENT: Creation of array
 console.log(evenOrOddMultipleTable)
+
+// Problem 4 | Another way to just call the function without the need for explicit currying 
+console.log(coolGenericFunction(7)(false))
