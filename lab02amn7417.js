@@ -104,7 +104,7 @@ console.log(coolHTMLTable)
 
 
 
-coolGenericFunction = function(multiple){
+const problem3GenericFunction = function(multiple){
     const multipleTable = Array.from({ length : 100 / Math.ceil(multiple) }, (_, i) => i * multiple)
     // PROGRAMMING COMMENT: I got this formula from the code in part 4. This is to create the create multiple 
     return function(even){
@@ -125,6 +125,12 @@ coolGenericFunction = function(multiple){
     }
 }
 
+const problem4GenericFunction = (operation) => {
+    return function(multiple, even){
+        const array = problem3GenericFunction(multiple)(even)
+        return array.reduce(operation)
+    }
+}
 // --------------------------------------------------------------------------------------//
 // FOR GRADERS: Change the value of multiple and even variable to generate various tables
 const multiple = 5
@@ -132,11 +138,20 @@ const isEven = true
 // --------------------------------------------------------------------------------------//
 
 // Problem 3
-multipleTable = coolGenericFunction(multiple)
+multipleTable = problem3GenericFunction(multiple)
 // PROGRAMMING COMMENT: Currying
 evenOrOddMultipleTable = multipleTable(isEven) 
 // PROGRAMMING COMMENT: Creation of array
 console.log(evenOrOddMultipleTable)
 
-// Problem 4 | Another way to just call the function without the need for explicit currying 
-console.log(coolGenericFunction(7)(false))
+// Problem 4
+
+// FOR GRADERS: Change these to change parameters to change the output
+const myCustomOperation = (accumulator, currentValue) => {
+    return accumulator + currentValue
+}
+const coolerMultiple = 7
+const coolerIsEven = false
+
+const result = problem4GenericFunction(myCustomOperation)(coolerMultiple, coolerIsEven)
+console.log(result)
